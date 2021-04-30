@@ -11,7 +11,7 @@
               <el-table-column label="操作" fixed="right" width="100" align="center">
                 <template slot-scope="scope">
                   <el-button type="text" size="small" @click="$store.dispatch('delsingle', scope.row)">删除</el-button>
-                  <el-button type="text" size="small" @click="$store.dispatch('addOrderList',scope.row)">增加</el-button>
+                  <el-button type="text" size="small" @click="addOrderList(scope.row)">增加</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -35,7 +35,7 @@
         <div class="often-goods">
           <div class="title">常用商品</div>
           <ul>
-            <li v-for="item in oftenGoods" @click="$store.dispatch('addOrderList', item)">
+            <li v-for="item in oftenGoods" @click="addOrderList(item)">
               <span>{{item.goodsName}}</span>
               <span class="o-price">￥{{item.price}}元</span>
             </li>
@@ -46,7 +46,7 @@
           <el-tabs>
             <el-tab-pane label="汉堡">
               <ul class="food-list">
-                <li v-for="item in type0Goods" @click="$store.dispatch('addOrderList', item)">
+                <li v-for="item in type0Goods" @click="addOrderList(item)">
                   <span class="food-img"><img :src="item.goodsImg" width="100%"></span>
                   <span class="food-name">{{item.goodsName}}</span>
                   <span class="food-price">￥{{item.price}}元</span>
@@ -55,7 +55,7 @@
             </el-tab-pane>
             <el-tab-pane label="小食">
               <ul class="food-list">
-                <li v-for="item in type1Goods" @click="$store.dispatch('addOrderList', item)">
+                <li v-for="item in type1Goods" @click="addOrderList(item)">
                   <span class="food-img"><img :src="item.goodsImg" width="100%"></span>
                   <span class="food-name">{{item.goodsName}}</span>
                   <span class="food-price">￥{{item.price}}元</span>
@@ -64,7 +64,7 @@
             </el-tab-pane>
             <el-tab-pane label="饮料">
               <ul class="food-list">
-                <li v-for="item in type2Goods" @click="$store.dispatch('addOrderList', item)">
+                <li v-for="item in type2Goods" @click="addOrderList(item)">
                   <span class="food-img"><img :src="item.goodsImg" width="100%"></span>
                   <span class="food-name">{{item.goodsName}}</span>
                   <span class="food-price">￥{{item.price}}元</span>
@@ -73,7 +73,7 @@
             </el-tab-pane>
             <el-tab-pane label="套餐">
               <ul class="food-list">
-                <li v-for="item in type3Goods" @click="$store.dispatch('addOrderList', item)">
+                <li v-for="item in type3Goods" @click="addOrderList(item)">
                   <span class="food-img"><img :src="item.goodsImg" width="100%"></span>
                   <span class="food-name">{{item.goodsName}}</span>
                   <span class="food-price">￥{{item.price}}元</span>
@@ -238,6 +238,9 @@ export default {
   methods: {
     checkout() {
       store.dispatch('checkout')
+    },
+    addOrderList(item) {
+      store.dispatch('addOrderList', item)
     }
   }
 }
