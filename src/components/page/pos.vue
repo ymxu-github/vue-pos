@@ -331,16 +331,15 @@ export default {
 .total small:nth-child(2) {
   padding-left: 15px;
 }
-</style>
-<style>
+
 /**
- * @desc 修改ui默认样式 style不能有scoped
+ * @desc 修改ui默认样式 要使用穿透符>>>
  */
-.el-tabs__header {
+.pos >>> .el-tabs__header {
   background: #fff;
 }
 
-.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+.pos >>> .el-tabs--top .el-tabs__item.is-top:nth-child(2) {
   padding-left: 10px !important;
 }
 </style>
