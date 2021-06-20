@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { Message } from 'element-ui';
 
-axios.interceptors.request.use((config)=>{
+axios.interceptors.request.use((config) => {
     return config;
-}, (err)=>{
+}, (err) => {
     Message.error({ message: err });
 })
 
-axios.interceptors.response.use((success)=>{
+axios.interceptors.response.use((success) => {
     return success.data;
-}, (err)=>{
+}, (err) => {
     if (err.response) {
         console.log(err.response);
     } else {
@@ -17,7 +17,7 @@ axios.interceptors.response.use((success)=>{
     }
 })
 
-export const getOftenGoods = (params)=>{
+export const getOftenGoods = (params) => {
     return axios({
         url: 'https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/oftenGoods',
         method: 'get',
@@ -25,7 +25,7 @@ export const getOftenGoods = (params)=>{
     })
 }
 
-export const getTypeGoods = (params)=>{
+export const getTypeGoods = (params) => {
     return axios({
         url: 'https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/typeGoods',
         method: 'get',
